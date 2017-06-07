@@ -47,7 +47,7 @@ function display_site_info()
 function display_login_form()
 {// show register table
 ?>
-<a href="register.php">Not a member?</a><br />
+<a href="register_form.php">Not a member?</a><br />
 <form action="member.php" method="post">
 <table border="0" bgcolor="#cccccc">
 <tr>
@@ -73,6 +73,36 @@ function do_html_footer()
 ?>
   </body>
   </html>
+<?php
+}
+
+function display_form_regstration()
+{
+?>
+<form action="register_new.php" method="post">
+<table border="0" bgcolor="#cccccc">
+<tr>
+  <td>Email Address:</td>
+  <td><input type="text" name="email" maxlength="100" size="30"></td>
+</tr>
+<tr>
+  <td>Username:</td>
+  <td><input type="text" name="username" maxlength="16" size="16"></td>
+</tr>
+<tr>
+  <td>Password:</td>
+  <td><input type="password" name="password" maxlength="16" size="16"></td>
+</tr>
+<tr>
+  <td>Confirm Password:</td>
+  <td><input type="password" name="passwd2" maxlength="16" size="16"></td>
+</tr>
+<tr>
+  <td colspan="2" align="center"><input type="submit" value="Register"></td>
+</tr>
+</table>
+</form>
+
 <?php
 }
 ?>
