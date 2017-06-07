@@ -56,7 +56,7 @@ function display_login_form()
 </tr>
 <tr>
   <td>Password:</td>
-  <td><input type="text" name="password"></td>
+  <td><input type="password" name="password"></td>
 </tr>
 <tr>
   <td colspan="2" align="center"><input type="submit" name="login" value="login"></td>
@@ -105,4 +105,18 @@ function display_form_regstration()
 
 <?php
 }
+function do_html_url($url,$name)
+{
 ?>
+<a href=<?php echo $url?>><?php echo $name?></a>
+<?php
+}
+
+function display_vote_menu()
+{
+?>
+<li>HAHA</li>
+<?php
+}
+?>
+

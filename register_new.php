@@ -35,6 +35,9 @@ try
   $_SESSION['valid_user'] = $username;
 
   do_html_header('Successful register!');
+  
+  do_html_url('member.php',"Go to Vote page");
+
   do_html_footer();
 }
 catch(Exception $e)
