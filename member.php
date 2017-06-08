@@ -20,7 +20,7 @@ if($username && $password)
     exit;
   }
 
-  do_html_header('Home');
+  do_html_header('Which is your favorite ?');
   display_vote_menu();
   do_html_footer();
 

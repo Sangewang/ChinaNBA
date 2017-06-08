@@ -12,6 +12,7 @@ function do_html_header($title)
     li,td { font-family:Arial , Helvetica, sans-serif; font-size: 13px }
     hr { color: #3333cc; width=300px; text-align: left }
     a { color: #000000 }
+    div {float: left; padding:10px  }
   </style>
 </head>
 <body>
@@ -115,7 +116,18 @@ function do_html_url($url,$name)
 function display_vote_menu()
 {
 ?>
-<li>HAHA</li>
+<form action="showresult.php" method="post">
+<div>
+  <img src="CAVL.jpg" alt="calv" width="150" height="120"><br/>
+  <input type="radio" name="teamVote">Cleveland Cavaliers
+</div> 
+<div>
+  <img src="golden.jpg" alt="golden" width="150" height="120" ></br>
+  <input type="radio" name="teamVote">Golden State Warriors
+</div>
+
+
+</form>
 <?php
 }
 ?>
