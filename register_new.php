@@ -6,7 +6,6 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 $passwd2  = $_POST['passwd2'];
 
-session_start();
 
 try
 {

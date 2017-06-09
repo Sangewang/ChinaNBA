@@ -19,11 +19,17 @@ if(!$result)
 while($output = $result->fetch_object())
 {
   echo $output->username.", ".$output->email.",".$output->password."<br/>";
-  //echo $name;
-  //echo " Password =".$output["password"];
-  //echo " Email = $output[email] <br/>";
 }
 
+echo "<br/>";
 
+$query = "select * from NBAVoteTB";
+
+$result = $db_conn->query($query);
+
+while($output = $result->fetch_object())
+{
+  echo $output->username.", ".$output->champteam.", ".$output->bestplayer."<br/>";
+}
 
 ?>

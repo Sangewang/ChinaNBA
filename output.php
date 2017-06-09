@@ -1,4 +1,7 @@
 <?php
+  session_start();
+?>
+<?php
 function do_html_header($title)
 {//show web header
 ?>
@@ -117,16 +120,48 @@ function display_vote_menu()
 {
 ?>
 <form action="showresult.php" method="post">
+
 <div>
-  <img src="CAVL.jpg" alt="calv" width="150" height="120"><br/>
-  <input type="radio" name="teamVote">Cleveland Cavaliers
-</div> 
+  <a href="showCavl.php"><img src="CAVL.jpg" alt="calv" width="150" height="120"></a><br/>
+  <input type="radio" name="teamVote" value="Cleveland Cavaliers">Cleveland Cavaliers
+</div>
 <div>
-  <img src="golden.jpg" alt="golden" width="150" height="120" ></br>
-  <input type="radio" name="teamVote">Golden State Warriors
+  <a href="showGolden.php"><img src="golden.jpg" alt="golden" width="150" height="120" ></a><br/>
+  <input type="radio" name="teamVote" value="Golden State Warriors">Golden State Warriors
 </div>
 
+</br></br></br></br></br></br></br></br></br></br></br></br></br></hr>
 
+<div>
+  <a href="showLBJ.php"><img src="LBJ.jpg" alt="Lebron James" width="150" height="120"></a><br/>
+  <input type="radio" name="playVote" value="Lebron James">Lebron James
+</div>
+
+<div>
+  <a href="showKyrie.php"> <img src="ouwen.jpg" alt="Kyrie Irving" width="150" height="120"></a><br/>
+  <input type="radio" name="playVote" value="Kyrie Irving">Kyrie Irving
+</div>
+
+<div>
+  <a href="showLove.php"><img src="lefu.jpg" alt="Kevin Love" width="150" height="120"></a><br/>
+  <input type="radio" name="playVote" value="Kevin Love">Kevin Love
+</div>
+
+<div>
+  <a href="showDurant.php"><img src="kd.jpg" alt="Kevin Durant" width="80" height="120"></a><br/>
+  <input type="radio" name="playVote" value="Kevin Durant">Kevin Durant
+</div>
+
+<div>
+  <a href="showCurry.php"><img src="curry.jpg" alt="Stephen Curry" width="100" height="120"></a><br/>
+  <input type="radio" name="playVote" value="Stephen Curry">Stephen Curry
+</div>
+<div>
+  <a href="showKlay.php"><img src="kelai.jpg" alt="Klay Thompson" width="120" height="120"></a><br/>
+  <input type="radio" name="playVote" value="Klay Thompson">Klay Thompson
+</div>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></hr>
+<input type=submit name="submit" value="submit">
 </form>
 <?php
 }
