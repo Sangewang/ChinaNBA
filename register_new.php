@@ -36,13 +36,15 @@ try
   do_html_header('Successful register!');
   
   do_html_url('member.php',"Go to Vote page");
-
+  
   do_html_footer();
 }
 catch(Exception $e)
 {
   do_html_header('Problem');
   echo $e->getMessage();
+  echo "<br/>";
+  do_html_url("login.php",Login);
   do_html_footer();
   exit;
 }

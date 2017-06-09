@@ -1,4 +1,5 @@
 <?php
+require_once('nba_entrance.php');
 require_once("db_connect.php");
 session_start();
 $username = $_SESSION['valid_user'];
@@ -11,18 +12,57 @@ echo "You choose play is $player <br/>";
 
 $db_conn = db_connect();
 
-$query = "insert into  NBAVoteTB values ('".$username."','".$team."','".$player."')";
+$query = "select * from NBAVoteTB where username = '".$username."'";
 
 $result = $db_conn->query($query);
 
-if(!$result)
+if(($result->num_rows > 0))
 {
-  throw new Exception("insert data into db error!");
-}
-else
-{
-  echo "Insert DB Successful!<br>";
+  echo "Sorry,you have already vote it <br/>";
+ // exit;
 }
 
+filled_out($_POST);
+if(isset($team) and isset($player))
+{
+  $query = "insert into  NBAVoteTB values ('".$username."','".$team."','".$player."')";
 
+  $result = $db_conn->query($query);
+
+  if(!$result)
+  {
+    throw new Exception("insert data into db error!");
+    exit;
+  }
+  else
+  {
+    echo "Insert DB Successful!<br>";
+  }
+}
+$array_vote = array();
+$array_vote['Cleveland Cavaliers'] = 0;
+$array_vote['Golden State Warriors'] = 0;
+$array_vote['Lebron James'] = 0;
+$array_vote['Kyrie Irving'] = 0;
+$array_vote['Kevin Love'] = 0;
+$array_vote['Kevin Durant'] = 0;
+$array_vote['Stephen Curry'] = 0;
+$array_vote['Klay Thompson'] = 0;
+
+$query = "select * from NBAVoteTB";
+
+$result = $db_conn->query($query);
+
+while($row = $result->fetch_object())
+{
+  echo "TB team is ".$row->champteam."<br/>";
+  echo "TB play is ".$row->bestplayer."<br/>";
+  $array_vote[$row->champteam]++;
+  $array_vote[$row->bestplayer]++;
+}
+
+foreach($array_vote as $key => $value)
+{
+  echo "$key has vote $value <br>";
+}
 ?>

@@ -20,7 +20,8 @@ if($username && $password)
     exit;
   }
 }
-  do_html_header('Which is your favorite ?');
+  do_html_header('If you Have Vote ?');
+  do_html_url('showresult.php','Go to check The vote Result');
   display_vote_menu();
   do_html_footer();
 
