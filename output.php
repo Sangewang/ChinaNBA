@@ -66,10 +66,10 @@ function display_login_form()
   <td colspan="2" align="center"><input type="submit" name="login" value="login"></td>
 </tr>
 <tr>
-  <td colspan="2"><a href="getpassword.php">Forget your password?</a></td>
+  <td colspan="2"><a href="forgetpassword_form.php">Forget you password?</a></td>
 </tr>
 <tr>
-  <td colspan="2"><a href="resetpassword_form.php">Reset you password?</a></td>
+  <td colspan="2"><a href="resetpassword_form.php">Change you password?</a></td>
 </tr>
 </table>
 </form>
@@ -188,6 +188,21 @@ function display_resetpasswd_form()
 <tr>
   <td colspan="2" align="center"><input type="submit" value="submit"></td>
 </tr>
+</table>
+</form>
+<?php
+}
+
+function display_getpasswd_form()
+{
+?>
+<form action = "forgetpassword.php" method="post">
+<table>
+<tr>
+  <td>Please Input Your Name:</td>
+  <td><input type="text" name="username"></td>
+</tr>
+<tr><td><input type="submit" value="submit"></td></tr>
 </table>
 </form>
 <?php
