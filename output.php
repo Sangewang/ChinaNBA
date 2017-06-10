@@ -68,6 +68,9 @@ function display_login_form()
 <tr>
   <td colspan="2"><a href="getpassword.php">Forget your password?</a></td>
 </tr>
+<tr>
+  <td colspan="2"><a href="resetpassword_form.php">Reset you password?</a></td>
+</tr>
 </table>
 </form>
 <?
@@ -165,5 +168,28 @@ function display_vote_menu()
 </form>
 <?php
 }
+function display_resetpasswd_form()
+{
 ?>
-
+<form action="resetpassword.php" method="post">
+<table border="0" bgcolor="cccccc">
+<tr>
+  <td>Username:</td>
+  <td><input type="text" name="username"></td>
+</tr>
+<tr>
+  <td>Password:</td>
+  <td><input type="password" name="password"></td>
+</tr>
+<tr>
+  <td>Confirm Password:</td>
+  <td><input type="password" name="passwd2"></td>
+</tr>
+<tr>
+  <td colspan="2" align="center"><input type="submit" value="submit"></td>
+</tr>
+</table>
+</form>
+<?php
+}
+?>
