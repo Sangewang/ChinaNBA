@@ -80,6 +80,7 @@
   $result_play->data_seek(0); 
 
   
+  
   /*************************************************************************
     2.Initial calculations for graph
   **************************************************************************/
@@ -147,7 +148,6 @@
     4.Draw data into graph
   **************************************************************************/
   //Get each line of db data and draw corresponding bars
-  
   while($row_team = $result_team->fetch_object())
   {
     if($total_team_votes > 0)
