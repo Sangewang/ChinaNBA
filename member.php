@@ -1,5 +1,6 @@
 <?php
 require_once('nba_entrance.php');
+require_once('db_connect.php');
 //check user and show menu
 @session_start();
 $username = $_POST['username'];
@@ -20,11 +21,22 @@ if($username && $password)
     exit;
   }
 }
-  do_html_header('If you Have Vote ?');
-  do_html_url('showresult.php','Go to check The vote Result');
-  display_vote_menu();
-  do_html_footer();
 
+  $db_conn = db_connect();
+  $query = "select * from NBAVoteTB where username = '".$username."'";
+  $result = $db_conn->query($query);
+  if($result->num_rows > 0)
+  {
+    do_html_header('You Have Already Vote');
+    do_html_url('showresult.php','Please Go to check The vote Result');
+    do_html_footer();
+  }
+  else
+  {
+    do_html_header("Please Vote First");
+    display_vote_menu();
+    do_html_footer();
+  }
 
 
 ?>

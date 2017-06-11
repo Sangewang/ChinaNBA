@@ -1,4 +1,4 @@
 <?php
-echo "Prepare to get your password!"
+echo "The Random Password Has Been Send Your MailBox!";
 
 ?>

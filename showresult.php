@@ -1,44 +1,42 @@
 <?php
 require_once('nba_entrance.php');
 require_once("db_connect.php");
+require_once("showimg.php");
 session_start();
 $username = $_SESSION['valid_user'];
 $team     = $_POST['teamVote'];
 $player   = $_POST['playVote'];
-
+/*
 echo "current user is $username <br/>";
 echo "You choose team is $team <br/>";
 echo "You choose play is $player <br/>";
-
+*/
 $db_conn = db_connect();
 
 $query = "select * from NBAVoteTB where username = '".$username."'";
 
 $result = $db_conn->query($query);
-
-if(($result->num_rows > 0))
+try
 {
-  echo "Sorry,you have already vote it <br/>";
- // exit;
-}
-
-filled_out($_POST);
-if(isset($team) and isset($player))
-{
-  $query = "insert into  NBAVoteTB values ('".$username."','".$team."','".$player."')";
-
-  $result = $db_conn->query($query);
-
-  if(!$result)
+  //filled_out($_POST);
+  if(isset($team) and isset($player))
   {
-    throw new Exception("insert data into db error!");
-    exit;
-  }
-  else
-  {
-    echo "Insert DB Successful!<br>";
+    $query = "insert into  NBAVoteTB values ('".$username."','".$team."','".$player."')";
+
+    $result = $db_conn->query($query);
+
+    if(!$result)
+    {
+      throw new Exception("insert data into db error!");
+    }
   }
 }
+catch(Exception $e)
+{
+  echo $e->getMessage();
+}
+display_vote_result();
+/*
 $array_vote = array();
 $array_vote['Cleveland Cavaliers'] = 0;
 $array_vote['Golden State Warriors'] = 0;
@@ -65,4 +63,8 @@ foreach($array_vote as $key => $value)
 {
   echo "$key has vote $value <br>";
 }
+*/
+
 ?>
+
+
