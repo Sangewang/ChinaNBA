@@ -1,10 +1,10 @@
 <?php
 require_once('nba_entrance.php');
 
-$email = $_POST['email'];
-$username = $_POST['username'];
-$password = $_POST['password'];
-$passwd2  = $_POST['passwd2'];
+$email = trim($_POST['email']);
+$username = trim($_POST['username']);
+$password = trim($_POST['password']);
+$passwd2  = trim($_POST['passwd2']);
 
 
 try
